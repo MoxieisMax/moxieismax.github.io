@@ -1,0 +1,9 @@
+{% if include.faqs %}
+<section>
+  <h2>FAQs</h2>
+  {% for f in include.faqs %}
+    <h3>{{ f.q }}</h3>
+    <p>{{ f.a }}</p>
+  {% endfor %}
+</section>
+{% endif %}

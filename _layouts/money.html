@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<article>
+  <h1>{{ page.title }}</h1>
+  <p class="updated">Last updated: {{ page.last_updated }}</p>
+
+  {% if page.summary %}
+    <p>{{ page.summary }}</p>
+  {% endif %}
+
+  {% include comparison-table.html products=page.products %}
+
+  <section>
+    <h2>Top picks</h2>
+    {% include product-cards.html products=page.products %}
+  </section>
+
+  {% if page.buying_guide %}
+  <section>
+    <h2>Buying guide</h2>
+    {{ page.buying_guide | markdownify }}
+  </section>
+  {% endif %}
+
+  {% include faq.html faqs=page.faqs %}
+
+  {% include disclosure.html %}
+</article>

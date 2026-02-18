@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</section>
+
+<section>
+  <h2>Featured Guides</h2>
+  <div class="cards">
+    {% assign featured = site.money | where: "featured", true %}
+    {% for p in featured %}
+      <div class="card">
+        <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <p>{{ p.meta_description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2>Browse</h2>
+  <div class="cards">
+    <div class="card">
+      <a href="{{ '/money/' | relative_url }}">Best Picks</a>
+      <p>Comparison pages for “Best X for Y” searches.</p>
+    </div>
+    <div class="card">
+      <a href="{{ '/guides/' | relative_url }}">Guides</a>
+      <p>Short technical explainers to support better decisions.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+{% for id in include.products %}
+  {% assign item = site.data.products[id] %}
+  <section class="card">
+    <h2>{{ item.name }}</h2>
+    <p><strong>Best for:</strong> {{ item.best_for }}</p>
+
+    <h3>Pros</h3>
+    <ul>
+      {% for p in item.pros %}<li>{{ p }}</li>{% endfor %}
+    </ul>
+
+    <h3>Cons</h3>
+    <ul>
+      {% for c in item.cons %}<li>{{ c }}</li>{% endfor %}
+    </ul>
+
+    <a class="cta" href="{{ item.affiliate_link }}">Check on Amazon</a>
+  </section>
+{% endfor %}

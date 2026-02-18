@@ -1,0 +1,14 @@
+title: RLT Buyer Guides
+description: Structured red light therapy comparisons.
+url: ""
+baseurl: ""
+
+permalink: pretty
+
+collections:
+  money:
+    output: true
+    permalink: /money/:name/
+  guides:
+    output: true
+    permalink: /guides/:name/

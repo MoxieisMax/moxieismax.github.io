@@ -1,0 +1,27 @@
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Wavelengths</th>
+        <th>Irradiance</th>
+        <th>Coverage</th>
+        <th>Best for</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for id in include.products %}
+        {% assign item = site.data.products[id] %}
+        <tr>
+          <td><strong>{{ item.name }}</strong></td>
+          <td>{{ item.wavelengths }}</td>
+          <td>{{ item.irradiance }}</td>
+          <td>{{ item.coverage }}</td>
+          <td>{{ item.best_for }}</td>
+          <td><a class="cta" href="{{ item.affiliate_link }}">Check on Amazon</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
