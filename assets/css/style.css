@@ -1,16 +1,26 @@
-:root { --max: 980px; --pad: 18px; }
-body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; line-height:1.5; color:#111; }
+:root {
+	--max: 980px;
+	--pad: 18px;
+	--color-bg: #ffffff;
+	--color-text: #2b2b2b;
+	--color-primary: #6a00ff; /* purple */
+	--color-accent: #00c853; /* green */
+	--color-border: #e6e6e6;
+	--color-muted: #777;
+}
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; line-height:1.5; color:var(--color-text); background:var(--color-bg); }
 .container { max-width: var(--max); margin: 0 auto; padding: var(--pad); }
-.site-header { border-bottom: 1px solid #e8e8e8; }
+.site-header { border-bottom: 1px solid var(--color-border); }
 .header-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.brand { text-decoration:none; font-weight:700; color:#111; }
-.nav a { margin-left:12px; text-decoration:none; color:#333; }
+.brand { text-decoration:none; font-weight:700; color:var(--color-primary); }
+.nav a { margin-left:12px; text-decoration:none; color:var(--color-text); }
 .hero { padding: 28px 0; }
 .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; }
-.card { border:1px solid #e8e8e8; border-radius:12px; padding:14px; background:#fff; }
+.card { border:1px solid var(--color-border); border-radius:12px; padding:14px; background:var(--color-bg); }
 .table-wrap { overflow-x:auto; }
 table { width:100%; border-collapse:collapse; }
-th, td { border:1px solid #e8e8e8; padding:10px; text-align:left; vertical-align:top; }
-.updated, .fineprint { color:#666; font-size:0.9rem; }
-.cta { display:inline-block; padding:10px 12px; border:1px solid #111; border-radius:10px; text-decoration:none; color:#111; }
-.disclosure { border:1px solid #f0e6c8; background:#fff7df; padding:10px; border-radius:10px; margin: 12px 0; }
+th, td { border:1px solid var(--color-border); padding:10px; text-align:left; vertical-align:top; }
+.updated, .fineprint { color:var(--color-muted); font-size:0.9rem; }
+.cta { display:inline-block; padding:10px 12px; border:1px solid var(--color-primary); border-radius:10px; text-decoration:none; color:var(--color-bg); background:var(--color-primary); }
+.cta.outline { background:transparent; color:var(--color-primary); }
+.disclosure { border:1px solid rgba(106,0,255,0.12); background:linear-gradient(180deg, rgba(106,0,255,0.03), rgba(0,200,83,0.02)); padding:10px; border-radius:10px; margin: 12px 0; }
