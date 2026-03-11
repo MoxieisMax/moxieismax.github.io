@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+nvm/
+site-react/node_modules/
+site-react/.vite/
+*.log
