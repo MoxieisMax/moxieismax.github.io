@@ -33,6 +33,21 @@ const guides = [
       <p><strong>Quick decision:</strong> if you want coverage per session, choose a panel; if you want portability, choose handheld.</p>
     `
   }
+  ,{
+    slug: 'what-is-irradiance',
+    title: 'What is Irradiance',
+    html: `
+      <h2>What is irradiance?</h2>
+      <p>Irradiance is the power of light delivered per unit area, typically measured in mW/cm². Higher irradiance means more energy reaches the target area in the same amount of time.</p>
+      <h2>Why it matters</h2>
+      <ul>
+        <li>Determines treatment time: higher irradiance = shorter sessions.</li>
+        <li>Affects penetration: combined with wavelength, influences how deep energy is delivered.</li>
+      </ul>
+      <h2>Shopping tip</h2>
+      <p>Look for irradiance figures at a specified distance (e.g., at 6 inches) and prefer manufacturers who publish measured values.</p>
+    `
+  }
 ]
 
 export default guides
