@@ -1,0 +1,2 @@
+root: C:\Users\Max\Desktop\Affilaite\nvm
+path: C:\nvm4w\nodejs2\nodejs

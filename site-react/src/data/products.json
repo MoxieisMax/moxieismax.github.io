@@ -1,0 +1,32 @@
+{
+  "panel_a": {
+    "name": "Example Panel A",
+    "wavelengths": "660nm + 850nm",
+    "irradiance": "Manufacturer-reported",
+    "coverage": "Medium",
+    "best_for": "Budget panel choice",
+    "affiliate_link": "https://www.amazon.com/your-affiliate-link-a",
+    "pros": [
+      "Dual wavelengths",
+      "Good coverage for price"
+    ],
+    "cons": [
+      "Mounting options limited"
+    ]
+  },
+  "panel_b": {
+    "name": "Example Panel B",
+    "wavelengths": "660nm + 850nm",
+    "irradiance": "Manufacturer-reported",
+    "coverage": "Small",
+    "best_for": "Small spaces",
+    "affiliate_link": "https://www.amazon.com/your-affiliate-link-b",
+    "pros": [
+      "Compact footprint",
+      "Easy to position"
+    ],
+    "cons": [
+      "Smaller coverage area"
+    ]
+  }
+}
