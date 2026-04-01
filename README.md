@@ -1,5 +1,10 @@
 # Affilaite — Jekyll site
 
+---
+title: Affilaite — Jekyll site
+meta_description: "Repository and instructions for the Affilaite Jekyll site"
+---
+
 This repository contains the original Jekyll site. A React port was created previously and archived to `archive/react-port`.
 
 To run the Jekyll site locally (requires Ruby + Bundler + Jekyll):
