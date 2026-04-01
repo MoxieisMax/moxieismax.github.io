@@ -1,19 +1,33 @@
 {% for id in include.products %}
   {% assign item = site.data.products[id] %}
-  <section class="card">
-    <h2>{{ item.name }}</h2>
-    <p><strong>Best for:</strong> {{ item.best_for }}</p>
+  <section class="card product-card">
+    {% if item.image %}
+      <div class="product-media">
+        <img src="{{ item.image }}" alt="{{ item.name }} image" class="product-image"/>
+      </div>
+    {% endif %}
 
-    <h3>Pros</h3>
-    <ul>
-      {% for p in item.pros %}<li>{{ p }}</li>{% endfor %}
-    </ul>
+    <div class="product-body">
+      <h2 class="product-title">{{ item.name }}</h2>
+      {% if item.best_for %}<p class="meta"><strong>Best for:</strong> {{ item.best_for }}</p>{% endif %}
 
-    <h3>Cons</h3>
-    <ul>
-      {% for c in item.cons %}<li>{{ c }}</li>{% endfor %}
-    </ul>
+      {% if item.pros %}
+        <h3>Pros</h3>
+        <ul class="pros-list">
+          {% for p in item.pros %}<li>{{ p }}</li>{% endfor %}
+        </ul>
+      {% endif %}
 
-    <a class="cta" href="{{ item.affiliate_link }}">Check on Amazon</a>
+      {% if item.cons %}
+        <h3>Cons</h3>
+        <ul class="cons-list">
+          {% for c in item.cons %}<li>{{ c }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+
+      <p>
+        <a class="cta primary" href="{{ item.affiliate_link }}" target="_blank" rel="noopener noreferrer">Check on Amazon</a>
+      </p>
+    </div>
   </section>
 {% endfor %}

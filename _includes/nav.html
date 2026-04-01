@@ -1,9 +1,12 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav class="nav">
-      <a href="{{ '/money/' | relative_url }}">Best Picks</a>
-      <a href="{{ '/guides/' | relative_url }}">Guides</a>
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+      <ul id="site-navigation" class="nav-list">
+        <li><a href="{{ '/money/' | relative_url }}">Best Picks</a></li>
+        <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
+      </ul>
     </nav>
   </div>
 </header>

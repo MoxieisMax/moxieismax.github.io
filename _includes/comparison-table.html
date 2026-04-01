@@ -14,12 +14,17 @@
       {% for id in include.products %}
         {% assign item = site.data.products[id] %}
         <tr>
-          <td><strong>{{ item.name }}</strong></td>
+          <td>
+            <strong>{{ item.name }}</strong>
+            {% if item.image %}
+              <div class="small-thumb"><img src="{{ item.image }}" alt="{{ item.name }}"/></div>
+            {% endif %}
+          </td>
           <td>{{ item.wavelengths }}</td>
           <td>{{ item.irradiance }}</td>
           <td>{{ item.coverage }}</td>
           <td>{{ item.best_for }}</td>
-          <td><a class="cta" href="{{ item.affiliate_link }}">Check on Amazon</a></td>
+          <td><a class="cta primary" href="{{ item.affiliate_link }}" target="_blank" rel="noopener noreferrer">Check on Amazon</a></td>
         </tr>
       {% endfor %}
     </tbody>
