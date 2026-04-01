@@ -4,3 +4,4 @@ nvm/
 site-react/node_modules/
 site-react/.vite/
 *.log
+archive/
