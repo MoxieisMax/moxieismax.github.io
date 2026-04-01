@@ -4,11 +4,35 @@ on:
   push:
     branches: [ main ]
 
+# Grant minimal permissions required for the deploy step
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+
+# Opt into Node.js 24 for JavaScript actions (addresses runner deprecation warning)
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Git debug info
+        run: |
+          git --version
+          git remote -v || true
+          git status --porcelain --untracked-files=no || true
+          git config --list || true
+          echo "GITHUB_ACTOR=$GITHUB_ACTOR"
+        shell: bash
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -21,8 +45,15 @@ jobs:
       - name: Build site
         run: jekyll build
 
+      - name: Configure git for deploy
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           publish_dir: ./_site
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # ensure no accidental failures when there are no changes to publish
+          allow_empty_commit: true
