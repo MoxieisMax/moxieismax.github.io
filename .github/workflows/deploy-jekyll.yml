@@ -12,6 +12,8 @@ permissions:
 
 # Opt into Node.js 24 for JavaScript actions (addresses runner deprecation warning)
 env:
+  # Opt into Node 24 for JavaScript actions (addresses runner deprecation warning)
+  ACTIONS_NODE_VERSION: 24
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -24,6 +26,18 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: true
           fetch-depth: 0
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Node debug info
+        run: |
+          node -v || true
+          npm -v || true
+          echo "ACTIONS_NODE_VERSION=$ACTIONS_NODE_VERSION"
+        shell: bash
 
       - name: Git debug info
         run: |
