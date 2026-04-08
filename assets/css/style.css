@@ -9,18 +9,23 @@ body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-se
 
 .nav-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; align-items: center; }
 .nav-list li { display: inline-block; }
-.nav-toggle { display: none; background: transparent; border: 1px solid transparent; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
+.nav-toggle { display: none; background: transparent; border: 1px solid transparent; padding: 6px 8px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; min-width: 44px; min-height: 44px; }
 
 .hero { padding: 36px 0; }
 .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
 .card { border:1px solid #e8e8e8; border-radius:var(--card-radius); padding:18px; background:#fff; box-shadow: 0 6px 18px rgba(15,15,15,0.04); transition:transform .18s ease, box-shadow .18s ease; }
 .card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(15,15,15,0.08); }
+
+/* Image optimization */
+img { max-width: 100%; height: auto; }
+.product-image { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 3/2; }
+
 .table-wrap { overflow-x:auto; border-radius:8px; }
 table { width:100%; border-collapse:collapse; background: #fff; }
 th, td { border:1px solid #e8e8e8; padding:12px; text-align:left; vertical-align:top; }
 tr:nth-child(even) td { background: #fbfbfb; }
 .updated, .fineprint { color:var(--muted); font-size:0.95rem; }
-.cta { display:inline-block; padding:10px 14px; border:1px solid #111; border-radius:10px; text-decoration:none; color:#111; }
+.cta { display:inline-block; padding:10px 14px; border:1px solid #111; border-radius:10px; text-decoration:none; color:#111; min-width: 44px; min-height: 44px; text-align: center; }
 .cta.primary { background:var(--accent); color:#fff; border:none; box-shadow: 0 6px 16px rgba(11,102,255,0.12); }
 .cta:hover, .cta:focus { transform: translateY(-1px); }
 .disclosure { border:1px solid #f0e6c8; background:#fff7df; padding:12px; border-radius:10px; margin: 12px 0; }
@@ -34,7 +39,8 @@ tr:nth-child(even) td { background: #fbfbfb; }
 	.brand { font-size:1.05rem; }
 	.cards { gap:12px; }
 	.nav-toggle { display: inline-block; }
-	.nav-list { display: none; position: absolute; right: var(--pad); top: 64px; flex-direction: column; background: #fff; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-radius: 10px; }
+	.nav-list { display: none; position: absolute; right: var(--pad); top: 64px; flex-direction: column; background: #fff; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-radius: 10px; min-width: 200px; z-index: 1000; }
 	.nav-list.show { display: flex; }
-	.nav-list li { display: block; margin: 6px 0; }
+	.nav-list li { display: block; margin: 6px 0; width: 100%; }
+	.nav-list a { display: block; width: 100%; min-width: 48px; min-height: 48px; display: flex; align-items: center; }
 }

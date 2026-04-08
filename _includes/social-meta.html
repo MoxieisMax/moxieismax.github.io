@@ -1,0 +1,31 @@
+<!-- Open Graph Meta Tags -->
+<meta property="og:type" content="{% if page.collection == 'money' %}article{% else %}website{% endif %}" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+<meta property="og:description" content="{{ page.meta_description | default: site.description }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+{% if page.og_image %}
+<meta property="og:image" content="{{ site.url }}{{ page.og_image }}" />
+{% elsif site.og_image %}
+<meta property="og:image" content="{{ site.url }}{{ site.og_image }}" />
+{% else %}
+<meta property="og:image" content="{{ site.url }}/assets/og-default.jpg" />
+{% endif %}
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+<meta name="twitter:description" content="{{ page.meta_description | default: site.description }}" />
+{% if page.og_image %}
+<meta name="twitter:image" content="{{ site.url }}{{ page.og_image }}" />
+{% elsif site.og_image %}
+<meta name="twitter:image" content="{{ site.url }}{{ site.og_image }}" />
+{% else %}
+<meta name="twitter:image" content="{{ site.url }}/assets/og-default.jpg" />
+{% endif %}
+{% if site.twitter_username %}
+<meta name="twitter:site" content="@{{ site.twitter_username }}" />
+<meta name="twitter:creator" content="@{{ site.twitter_username }}" />
+{% endif %}

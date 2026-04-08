@@ -3,7 +3,12 @@
   <section class="card product-card">
     {% if item.image %}
       <div class="product-media">
-        <img src="{{ item.image }}" alt="{{ item.name }} image" class="product-image"/>
+        <img src="{{ item.image }}" 
+             alt="{{ item.name }} image" 
+             class="product-image"
+             loading="lazy"
+             width="300"
+             height="200"/>
       </div>
     {% endif %}
 

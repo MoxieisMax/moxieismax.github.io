@@ -1,0 +1,41 @@
+{% if site.google_analytics %}
+<!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{% endif %}
+
+<!-- Core Web Vitals Monitoring -->
+<script>
+  // Web Vitals reporting (lightweight)
+  if ('PerformanceObserver' in window) {
+    // Monitor Largest Contentful Paint (LCP)
+    new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      const lastEntry = entries[entries.length - 1];
+      console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
+    }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+    // Monitor First Input Delay (FID)
+    new PerformanceObserver((list) => {
+      list.getEntries().forEach((entry) => {
+        console.log('FID:', entry.processingStart - entry.startTime);
+      });
+    }).observe({ entryTypes: ['first-input'] });
+
+    // Monitor Cumulative Layout Shift (CLS)
+    let clsScore = 0;
+    new PerformanceObserver((list) => {
+      list.getEntries().forEach((entry) => {
+        if (!entry.hadRecentInput) {
+          clsScore += entry.value;
+        }
+      });
+      console.log('CLS:', clsScore);
+    }).observe({ entryTypes: ['layout-shift'] });
+  }
+</script>

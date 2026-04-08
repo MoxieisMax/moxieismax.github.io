@@ -5,6 +5,23 @@ baseurl: ""
 
 permalink: pretty
 
+# Asset optimization
+sass:
+  style: compressed
+
+# Exclude unnecessary files from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+  - README.md
+  - Git-2.53.0-64-bit.exe
+  - nvm
+  - scripts
+
 collections:
   money:
     output: true

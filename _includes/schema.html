@@ -1,0 +1,89 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}{{ site.baseurl }}/#organization",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
+      "description": "{{ site.description }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.baseurl }}/assets/logo.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}{{ site.baseurl }}/#website",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ site.url }}{{ site.baseurl }}/#organization"
+      }
+    }
+    {% if page.layout == 'support' or page.collection == 'guides' %},
+    {
+      "@type": "Article",
+      "@id": "{{ site.url }}{{ page.url }}#article",
+      "headline": "{{ page.title }}",
+      "description": "{{ page.meta_description | default: site.description }}",
+      "url": "{{ site.url }}{{ page.url }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+      },
+      "datePublished": "{{ page.date | default: page.last_updated | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_updated | default: page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Organization",
+        "@id": "{{ site.url }}{{ site.baseurl }}/#organization"
+      },
+      "publisher": {
+        "@id": "{{ site.url }}{{ site.baseurl }}/#organization"
+      }
+    }
+    {% endif %}
+    {% if page.collection == 'money' %},
+    {
+      "@type": "ReviewNewsArticle",
+      "@id": "{{ site.url }}{{ page.url }}#review",
+      "headline": "{{ page.title }}",
+      "description": "{{ page.meta_description | default: site.description }}",
+      "url": "{{ site.url }}{{ page.url }}",
+      "datePublished": "{{ page.date | default: page.last_updated | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_updated | default: page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Organization",
+        "@id": "{{ site.url }}{{ site.baseurl }}/#organization"
+      },
+      "publisher": {
+        "@id": "{{ site.url }}{{ site.baseurl }}/#organization"
+      }
+    }
+    {% endif %}
+    {% if page.breadcrumbs %}
+    ,{
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}{{ site.baseurl }}/"
+        }
+        {% for crumb in page.breadcrumbs %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ forloop.index | plus: 1 }},
+          "name": "{{ crumb.name }}",
+          "item": "{{ site.url }}{{ crumb.url }}"
+        }
+        {% endfor %}
+      ]
+    }
+    {% endif %}
+  ]
+}
+</script>

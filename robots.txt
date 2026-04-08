@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow session state and temporary files
+Disallow: /session-state/
+Disallow: /files/
+Disallow: /.git/
+
+# Sitemap
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
